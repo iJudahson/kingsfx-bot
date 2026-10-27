@@ -1,11 +1,11 @@
 {
-    "brand_name": "YourBrand",
-    "brand_domain": "yourbrand.com",
+    "brand_name": "KingsFX",
+    "brand_domain": "kingsfx-bot.pages.dev",
     "brand_hostname": {
-        "staging": "staging.yourbrand.com/dashboard",
-        "production": "yourbrand.com/dashboard"
+        "staging": "https://kingsfx-bot.pages.dev/dashboard",
+        "production": "https://kingsfx-bot.pages.dev/dashboard"
     },
-    "domain_name": "YourBrand.com",
+    "domain_name": "KingsFX",
     "colors": {
         "primary": "#3b82f6",
         "secondary": "#64748b",
@@ -58,14 +58,14 @@
         "css_variable_prefix": "--brand"
     },
     "platform": {
-        "name": "Trading Bot",
+        "name": "KingsFX Trading Bot",
         "logo": {
             "type": "component",
             "component_name": "BrandLogo",
-            "alt_text": "Trading Bot",
+            "alt_text": "KingsFX",
             "link_url": "/",
             "show_text": false,
-            "text": "Trading Bot"
+            "text": "KingsFX"
         },
         "footer": {
             "enable_language_settings": false,
@@ -73,10 +73,10 @@
         },
         "hostname": {
             "production": {
-                "com": "bot.yourbrand.com"
+                "com": "kingsfx-bot.pages.dev"
             },
             "staging": {
-                "com": "staging-bot.yourbrand.com"
+                "com": "kingsfx-bot.pages.dev"
             }
         },
         "auth2_url": {
