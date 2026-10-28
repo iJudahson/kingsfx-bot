@@ -73,10 +73,10 @@
         },
         "hostname": {
             "production": {
-                "com": "kingsfx-bot.pages.dev"
+                "com": "kingsfx-bot-pages.pages.dev"
             },
             "staging": {
-                "com": "kingsfx-bot.pages.dev"
+                "com": "kingsfx-bot-pages.pages.dev"
             }
         },
         "auth2_url": {
