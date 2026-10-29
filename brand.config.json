@@ -76,7 +76,7 @@
                 "com": "kingsfx-bot-pages.pages.dev"
             },
             "staging": {
-                "com": "kingsfx-bot-pages.pages.dev"
+                "com": "staging-bot.yourbrand.com"
             }
         },
         "auth2_url": {
