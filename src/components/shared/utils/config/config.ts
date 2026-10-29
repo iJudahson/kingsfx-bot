@@ -29,9 +29,11 @@ export const WS_SERVERS = {
 // Helper to check if we're on production domains
 export const isProduction = () => {
     const hostname = window.location.hostname.toLowerCase();
-    const productionDomains = Object.values(PRODUCTION_DOMAINS).map(value => value.toLowerCase()) as string[];
+    const productionDomains = Object.values(PRODUCTION_DOMAINS).map(
+        value => value.toLowerCase()
+    ) as string[];
 
-    return productionDomains.includes(hostname) || hostname.endsWith('.pages.dev');
+    return productionDomains.includes(hostname);
 };
 
 export const isLocal = () => /localhost(:\d+)?$/i.test(window.location.hostname);
