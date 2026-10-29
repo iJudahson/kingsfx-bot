@@ -28,24 +28,29 @@ export const WS_SERVERS = {
 
 // Helper to check if we're on production domains
 export const isProduction = () => {
-    const hostname = window.location.hostname;
-    const productionDomains = Object.values(PRODUCTION_DOMAINS) as string[];
-    return productionDomains.includes(hostname);
+    const hostname = window.location.hostname.toLowerCase();
+    const productionDomains = Object.values(PRODUCTION_DOMAINS).map(value => value.toLowerCase()) as string[];
+
+    return productionDomains.includes(hostname) || hostname.endsWith('.pages.dev');
 };
 
 export const isLocal = () => /localhost(:\d+)?$/i.test(window.location.hostname);
 
 const getDefaultServerURL = () => {
-    const isProductionEnv = isProduction();
-
     try {
-        return isProductionEnv ? WS_SERVERS.PRODUCTION : WS_SERVERS.STAGING;
+        const hostname = window.location.hostname.toLowerCase();
+        const stagingDomains = Object.values(STAGING_DOMAINS).map(value => value.toLowerCase()) as string[];
+
+        if (hostname === 'localhost' || hostname === '127.0.0.1' || stagingDomains.includes(hostname)) {
+            return WS_SERVERS.STAGING;
+        }
+
+        return isProduction() ? WS_SERVERS.PRODUCTION : WS_SERVERS.STAGING;
     } catch (error) {
         console.error('Error in getDefaultServerURL:', error);
     }
 
-    // Production defaults to demov2, staging/preview defaults to qa194 (demo)
-    return isProductionEnv ? WS_SERVERS.PRODUCTION : WS_SERVERS.STAGING;
+    return WS_SERVERS.PRODUCTION;
 };
 
 /**
