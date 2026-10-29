@@ -29,6 +29,12 @@ export const WS_SERVERS = {
 // Helper to check if we're on production domains
 export const isProduction = () => {
     const hostname = window.location.hostname.toLowerCase();
+
+    // Always use production on the main KingsFX Pages domain.
+    if (hostname === 'kingsfx-bot-pages.pages.dev') {
+        return true;
+    }
+
     const productionDomains = Object.values(PRODUCTION_DOMAINS).map(
         value => value.toLowerCase()
     ) as string[];
