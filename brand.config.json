@@ -1,9 +1,9 @@
 {
     "brand_name": "KingsFX",
-    "brand_domain": "kingsfx-bot.pages.dev",
+    "brand_domain": "kingsfx-bot-pages.pages.dev",
     "brand_hostname": {
-        "staging": "https://kingsfx-bot.pages.dev/dashboard",
-        "production": "https://kingsfx-bot.pages.dev/dashboard"
+        "staging": "https://staging-bot.yourbrand.com/dashboard",
+        "production": "https://kingsfx-bot-pages.pages.dev/dashboard"
     },
     "domain_name": "KingsFX",
     "colors": {
