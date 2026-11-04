@@ -444,7 +444,7 @@ const AppWrapper = observer(() => {
                                             <ChunkLoader message={localize('Please wait, loading tutorials...')} />
                                         }
                                     >
-                                        <Tutorial handleTabChange={handleTabChange} />
+                                        {false ? <Tutorial handleTabChange={handleTabChange} /> : <div style={{ padding: '2rem', textAlign: 'center' }}>Guides and tutorials are coming soon to KingsFX.</div>}
                                     </Suspense>
                                 </div>
                             </div>
