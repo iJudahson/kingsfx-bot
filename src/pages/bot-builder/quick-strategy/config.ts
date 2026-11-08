@@ -222,7 +222,7 @@ const LABEL_LOSS = (): TConfigItem => ({
 const LOSS = (): TConfigItem => ({
     type: 'number',
     name: 'loss',
-validation: ['number', 'required', 'ceil', NUMBER_DEFAULT_VALIDATION(), { type: 'max', value: 1000, getMessage: (max: string | number) => localize('The loss threshold cannot be more than {{ max }}', { max }) }],
+validation: ['number', 'required', 'ceil', NUMBER_DEFAULT_VALIDATION()],
     has_currency_unit: true,
 });
 
