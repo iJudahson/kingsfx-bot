@@ -30,11 +30,12 @@ const DashboardComponent = observer(({ handleTabChange }: TMobileIconGuide) => {
                 })}
             >
                 <div className='tab__dashboard__content'>
-                    {!client.is_logged_in && <WelcomeHero />}
+                   
                     {client.is_logged_in && false && (
                         <Announcements is_mobile={!isDesktop} is_tablet={isTablet} handleTabChange={handleTabChange} />
                     )}
                     <div className='quick-panel'>
+                        {!client.is_logged_in && <WelcomeHero />}
                         <div
                             className={classNames('tab__dashboard__header', {
                                 'tab__dashboard__header--listed': isDesktop && has_dashboard_strategies,

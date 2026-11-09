@@ -11,7 +11,7 @@ const WelcomeHero = () => {
 
     return (
         <div className='kfx-hero'>
-            <span className='kfx-hero__tag'>Automated trading on your Deriv account</span>
+            <span className='kfx-hero__tag'>Automated trading for Deriv</span>
             <h1 className='kfx-hero__title'>
                 Welcome to Kings<span>FX</span>
             </h1>
