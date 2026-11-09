@@ -425,3 +425,9 @@
     --purchase-disabled-main: #121a2b;
     --purchase-disabled-section: #0a0f1a;
 }
+
+/* KingsFX: Bot Builder canvas */
+html .theme--dark .zelos-renderer.zelos_renderer-theme .blocklyMainBackground,
+html .theme--dark .load-strategy__container .blocklyMainBackground {
+    fill: #0a0f1a !important;
+}
