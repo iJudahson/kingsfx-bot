@@ -41,7 +41,7 @@ const DashboardComponent = observer(({ handleTabChange }: TMobileIconGuide) => {
                                 'tab__dashboard__header--listed': isDesktop && has_dashboard_strategies,
                             })}
                         >
-                            {!has_dashboard_strategies && (
+                            {!has_dashboard_strategies && client.is_logged_in && (
                                 <Text
                                     className='title'
                                     as='h2'
