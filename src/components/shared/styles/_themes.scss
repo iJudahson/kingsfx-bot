@@ -91,10 +91,10 @@
     --brand-font-monospace: 'Courier New', Courier, monospace;
 
     /* Dynamic brand colors (set by brand configuration) */
-    --brand-primary: #ff444f;
+    --brand-primary: #2563eb;
     --brand-secondary: #85acb0;
     --brand-tertiary: #2a3052;
-    --brand-success: #4bb4b3;
+    --brand-success: #10b981;
     --brand-danger: #cc2e3d;
     --brand-warning: #ffad3a;
     --brand-info: #377cfc;
@@ -159,7 +159,7 @@
         --button-secondary-default: #{constants.$color-grey-1};
         --button-tertiary-default: transparent;
         --button-primary-light-default: #{constants.$alpha-color-red-2};
-        --button-primary-hover: #{constants.$color-red-5};
+        --button-primary-hover: #1d4ed8;
         --button-secondary-hover: #{constants.$alpha-color-black-3};
         --button-tertiary-hover: #{constants.$alpha-color-red-1};
         --button-primary-light-hover: #{constants.$alpha-color-red-3};
