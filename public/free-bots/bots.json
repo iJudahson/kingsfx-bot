@@ -1,1 +1,9 @@
-
+[
+  {
+    "name": "1-3-2-6 Starter",
+    "file": "1-3-2-6-starter.xml",
+    "description": "Raises the stake in a fixed sequence after wins and resets after a loss. Always set a loss threshold.",
+    "risk": "Medium",
+    "author": "KingsFX"
+  }
+]
