@@ -1,9 +1,9 @@
 [
   {
-    "name": "1-3-2-6 Starter",
+    "name": "Digit Under Martingale",
     "file": "1-3-2-6-starter.xml",
-    "description": "Raises the stake in a fixed sequence after wins and resets after a loss. Always set a loss threshold.",
-    "risk": "Medium",
+    "description": "A digits bot on Volatility 100 (1s) that raises its stake after losses, with take-profit and stop-loss limits. High risk: stakes can grow quickly. Demo account only until you understand it.",
+    "risk": "High",
     "author": "KingsFX"
   }
 ]
