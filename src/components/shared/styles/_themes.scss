@@ -395,3 +395,33 @@
         --header-background-others: #{constants.$color-green-7};
     }
 }
+
+
+/* KingsFX navy overrides (dark theme) */
+:root .theme--dark {
+    --general-main-1: #0a0f1a;
+    --general-main-2: #0f1626;
+    --general-main-3: #121a2b;
+    --general-section-1: #0f1626;
+    --general-section-2: #0a0f1a;
+    --general-section-3: #162036;
+    --general-section-4: #162036;
+    --general-section-5: #162036;
+    --general-disabled: #121a2b;
+    --general-hover: #1a2540;
+    --general-active: #223152;
+
+    --state-normal: #0a0f1a;
+    --state-hover: #1a2540;
+    --state-active: #223152;
+    --state-disabled: #121a2b;
+
+    --fill-normal: #0a0f1a;
+    --fill-normal-1: #0f1626;
+    --border-normal: #223152;
+
+    --purchase-main-1: #059669;
+    --purchase-section-1: #047857;
+    --purchase-disabled-main: #121a2b;
+    --purchase-disabled-section: #0a0f1a;
+}
