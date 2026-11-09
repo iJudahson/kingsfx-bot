@@ -1,9 +1,9 @@
 [
   {
-    "name": "Digit Under Martingale",
-    "file": "1-3-2-6-starter.xml",
-    "description": "A digits bot on Volatility 100 (1s) that raises its stake after losses, with take-profit and stop-loss limits. High risk: stakes can grow quickly. Demo account only until you understand it.",
-    "risk": "High",
-    "author": "KingsFX"
+    "name": "Mkorean sv7",
+    "file": "mkorean-bot.xml",
+    "description": "What it does in plain words, and its main risk.",
+    "risk": "Medium",
+    "author": "Author's name"
   }
 ]
