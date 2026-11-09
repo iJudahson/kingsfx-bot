@@ -1,0 +1,44 @@
+.kfx-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.4rem;
+    padding: 4rem;
+    color: var(--text-prominent);
+
+    &__bar {
+        position: relative;
+        width: 24rem;
+        height: 0.4rem;
+        overflow: hidden;
+        border-radius: 0.2rem;
+        background: #162036;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            height: 100%;
+            border-radius: 0.2rem;
+            background: #c9a227;
+            animation: kfx-slide 1.2s ease-in-out infinite;
+        }
+    }
+
+    &__message {
+        font-size: 1.4rem;
+        color: #94a3b8;
+    }
+}
+
+@keyframes kfx-slide {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(250%);
+    }
+}
