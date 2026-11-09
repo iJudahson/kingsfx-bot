@@ -1,0 +1,91 @@
+.kfx-freebots {
+    max-width: 80rem;
+    max-height: calc(100vh - 18rem);
+    margin: 0 auto;
+    padding: 2.4rem;
+    overflow-y: auto;
+    color: var(--text-prominent);
+
+    &__title {
+        margin: 0 0 0.8rem;
+        font-size: 2.8rem;
+    }
+
+    &__intro {
+        margin: 0 0 2rem;
+        color: #94a3b8;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+    &__error {
+        margin: 0 0 1.6rem;
+        color: #f87171;
+        font-size: 1.4rem;
+    }
+
+    &__list {
+        display: grid;
+        gap: 1.6rem;
+    }
+
+    &__card {
+        padding: 2rem;
+        border: 1px solid #223152;
+        border-radius: 1.2rem;
+        background: #0f1626;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.6rem;
+    }
+
+    &__name {
+        margin: 0;
+        font-size: 1.8rem;
+    }
+
+    &__risk {
+        padding: 0.4rem 1rem;
+        border: 1px solid rgba(201, 162, 39, 0.4);
+        border-radius: 99.9rem;
+        color: #c9a227;
+        font-size: 1.2rem;
+        white-space: nowrap;
+    }
+
+    &__text {
+        margin: 1.2rem 0 1.6rem;
+        color: #94a3b8;
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
+
+    &__author {
+        color: #64748b;
+        font-size: 1.2rem;
+    }
+
+    &__button {
+        padding: 1rem 2rem;
+        border: 0;
+        border-radius: 0.8rem;
+        background: #2563eb;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background: #1d4ed8;
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
+    }
+}

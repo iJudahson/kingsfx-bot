@@ -42,6 +42,7 @@ import ChartModal from '../chart/chart-modal';
 import Dashboard from '../dashboard';
 import RunStrategy from '../dashboard/run-strategy';
 import './main.scss';
+import FreeBots from '../free-bots/free-bots';
 
 const ChartWrapper = lazy(() => import('../chart/chart-wrapper'));
 const Tutorial = lazy(() => import('../tutorials'));
@@ -444,7 +445,7 @@ const AppWrapper = observer(() => {
                                             <ChunkLoader message={localize('Please wait, loading tutorials...')} />
                                         }
                                     >
-                                        {false ? <Tutorial handleTabChange={handleTabChange} /> : <div style={{ padding: '2rem', textAlign: 'center' }}>Guides and tutorials are coming soon to KingsFX.</div>}
+                                        <FreeBots handleTabChange={handleTabChange} />
                                     </Suspense>
                                 </div>
                             </div>
