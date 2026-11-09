@@ -1,5 +1,6 @@
 .kfx-freebots {
-    max-width: 80rem;
+    width: 100%;
+    max-width: 112rem;
     max-height: calc(100vh - 18rem);
     margin: 0 auto;
     padding: 2.4rem;
@@ -24,53 +25,148 @@
         font-size: 1.4rem;
     }
 
-    &__list {
+    &__toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    &__search {
+        min-width: 22rem;
+        padding: 1rem 1.4rem;
+        border: 1px solid #2a3a5e;
+        border-radius: 0.8rem;
+        background: #0f1626;
+        color: var(--text-prominent);
+        font-size: 1.4rem;
+
+        &::placeholder {
+            color: #64748b;
+        }
+
+        &:focus {
+            border-color: #c9a227;
+            outline: none;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        gap: 0.8rem;
+    }
+
+    &__chip {
+        padding: 0.8rem 1.4rem;
+        border: 1px solid #2a3a5e;
+        border-radius: 99.9rem;
+        background: transparent;
+        color: #94a3b8;
+        font-size: 1.3rem;
+        cursor: pointer;
+
+        &:hover {
+            border-color: #c9a227;
+        }
+
+        &--active {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: #fff;
+        }
+    }
+
+    &__count {
+        margin-left: auto;
+        color: #64748b;
+        font-size: 1.3rem;
+    }
+
+    &__grid {
         display: grid;
-        gap: 1.6rem;
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        gap: 2rem;
+        padding-bottom: 2rem;
     }
 
     &__card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
         padding: 2rem;
-        border: 1px solid #223152;
+        border: 1px solid #2a3a5e;
+        border-top: 3px solid #c9a227;
         border-radius: 1.2rem;
-        background: #0f1626;
+        background: #16213a;
+        box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.35);
+        transition:
+            transform 0.15s ease,
+            border-color 0.15s ease;
+
+        &:hover {
+            border-color: #c9a227;
+            transform: translateY(-0.2rem);
+        }
     }
 
     &__row {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
-        gap: 1.6rem;
+        gap: 1.2rem;
     }
 
     &__name {
         margin: 0;
         font-size: 1.8rem;
+        line-height: 1.3;
     }
 
     &__risk {
+        flex-shrink: 0;
         padding: 0.4rem 1rem;
-        border: 1px solid rgba(201, 162, 39, 0.4);
+        border: 1px solid #64748b;
         border-radius: 99.9rem;
-        color: #c9a227;
+        color: #94a3b8;
         font-size: 1.2rem;
+        font-weight: bold;
         white-space: nowrap;
+
+        &--low {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+        }
+
+        &--medium {
+            border-color: #f59e0b;
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+        }
+
+        &--high {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+        }
     }
 
     &__text {
-        margin: 1.2rem 0 1.6rem;
+        display: -webkit-box;
+        flex: 1;
+        margin: 0;
+        overflow: hidden;
         color: #94a3b8;
         font-size: 1.4rem;
         line-height: 1.5;
-    }
-
-    &__author {
-        color: #64748b;
-        font-size: 1.2rem;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
     }
 
     &__button {
-        padding: 1rem 2rem;
+        width: 100%;
+        padding: 1.1rem 2rem;
         border: 0;
         border-radius: 0.8rem;
         background: #2563eb;
@@ -86,6 +182,15 @@
         &:disabled {
             opacity: 0.6;
             cursor: default;
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding: 1.6rem;
+
+        &__count {
+            width: 100%;
+            margin-left: 0;
         }
     }
 }

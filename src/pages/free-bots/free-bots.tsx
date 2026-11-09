@@ -10,8 +10,10 @@ type TFreeBot = {
     file: string;
     description: string;
     risk: string;
-    author: string;
+    author?: string;
 };
+
+const RISK_FILTERS = ['All', 'Low', 'Medium', 'High'];
 
 const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number) => void }) => {
     const { load_modal } = useStore();
@@ -19,6 +21,8 @@ const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number)
     const [status, setStatus] = React.useState('loading');
     const [message, setMessage] = React.useState('');
     const [busy_file, setBusyFile] = React.useState('');
+    const [query, setQuery] = React.useState('');
+    const [risk_filter, setRiskFilter] = React.useState('All');
 
     React.useEffect(() => {
         const loadList = async () => {
@@ -55,6 +59,12 @@ const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number)
         setBusyFile('');
     };
 
+    const visible_bots = bots.filter(bot => {
+        const matches_risk = risk_filter === 'All' || (bot.risk ?? '').toLowerCase() === risk_filter.toLowerCase();
+        const text = `${bot.name ?? ''} ${bot.description ?? ''}`.toLowerCase();
+        return matches_risk && text.includes(query.trim().toLowerCase());
+    });
+
     return (
         <div className='kfx-freebots'>
             <h2 className='kfx-freebots__title'>Free bots</h2>
@@ -62,31 +72,66 @@ const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number)
                 Load a bot into the Bot Builder, review it, and test it on a demo account first. Bots can lose money
                 and nothing here is financial advice.
             </p>
+
+            {status === 'ready' && bots.length > 0 && (
+                <div className='kfx-freebots__toolbar'>
+                    <input
+                        type='text'
+                        className='kfx-freebots__search'
+                        placeholder='Search bots'
+                        value={query}
+                        onChange={e => setQuery(e.target.value)}
+                    />
+                    <div className='kfx-freebots__filters'>
+                        {RISK_FILTERS.map(level => (
+                            <button
+                                type='button'
+                                key={level}
+                                className={`kfx-freebots__chip${risk_filter === level ? ' kfx-freebots__chip--active' : ''}`}
+                                onClick={() => setRiskFilter(level)}
+                            >
+                                {level}
+                            </button>
+                        ))}
+                    </div>
+                    <span className='kfx-freebots__count'>
+                        Showing {visible_bots.length} of {bots.length}
+                    </span>
+                </div>
+            )}
+
             {message && <p className='kfx-freebots__error'>{message}</p>}
             {status === 'loading' && <p className='kfx-freebots__intro'>Loading bots...</p>}
             {status === 'error' && <p className='kfx-freebots__error'>The bot list could not be loaded right now.</p>}
             {status === 'ready' && bots.length === 0 && (
                 <p className='kfx-freebots__intro'>No free bots yet. Check back soon.</p>
             )}
-            <div className='kfx-freebots__list'>
-                {bots.map(bot => (
+            {status === 'ready' && bots.length > 0 && visible_bots.length === 0 && (
+                <p className='kfx-freebots__intro'>No bots match your search.</p>
+            )}
+
+            <div className='kfx-freebots__grid'>
+                {visible_bots.map(bot => (
                     <div className='kfx-freebots__card' key={bot.file}>
                         <div className='kfx-freebots__row'>
                             <h3 className='kfx-freebots__name'>{bot.name}</h3>
-                            <span className='kfx-freebots__risk'>Risk: {bot.risk}</span>
-                        </div>
-                        <p className='kfx-freebots__text'>{bot.description}</p>
-                        <div className='kfx-freebots__row'>
-                            <span className='kfx-freebots__author'>By {bot.author}</span>
-                            <button
-                                type='button'
-                                className='kfx-freebots__button'
-                                disabled={busy_file === bot.file}
-                                onClick={() => handleLoad(bot)}
+                            <span
+                                className={`kfx-freebots__risk kfx-freebots__risk--${(bot.risk ?? '').toLowerCase()}`}
                             >
-                                {busy_file === bot.file ? 'Loading...' : 'Load bot'}
-                            </button>
+                                {bot.risk} risk
+                            </span>
                         </div>
+                        <p className='kfx-freebots__text' title={bot.description}>
+                            {bot.description}
+                        </p>
+                        <button
+                            type='button'
+                            className='kfx-freebots__button'
+                            disabled={busy_file === bot.file}
+                            onClick={() => handleLoad(bot)}
+                        >
+                            {busy_file === bot.file ? 'Loading...' : 'Load bot'}
+                        </button>
                     </div>
                 ))}
             </div>
