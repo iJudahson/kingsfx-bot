@@ -1,9 +1,9 @@
 [
   {
-    "name": "Mkorean sv7",
+    "name": "Digit Under Recovery",
     "file": "mkorean-bot.xml",
-    "description": "What it does in plain words, and its main risk.",
-    "risk": "Medium",
-    "author": "Author's name"
+    "description": "A digits bot on Volatility 10 (1s). It enters on a chosen last digit, then raises its stake after losses to recover them, with take-profit and stop-loss limits. High risk: stakes can roughly double with each loss. Demo account only.",
+    "risk": "High",
+    "author": "Unconfirmed"
   }
 ]
