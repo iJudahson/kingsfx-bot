@@ -434,7 +434,7 @@ const AppWrapper = observer(() => {
                                             fill='var(--text-general)'
                                             className='icon-general-fill-g-path'
                                         />
-                                        <Localize i18n_default_text='Tutorials' />
+                                        <Localize i18n_default_text='Free Bots' />
                                     </>
                                 }
                                 id='id-tutorials'
