@@ -1,26 +1,15 @@
-// TODO: Complete MobX integration for popup functionality
-// Some code is kept commented out pending popup integration
 import React from 'react';
 import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import GoogleDrive from '@/components/load-modal/google-drive';
 import Dialog from '@/components/shared_ui/dialog';
 import MobileFullPageModal from '@/components/shared_ui/mobile-full-page-modal';
-import Text from '@/components/shared_ui/text';
 import { DBOT_TABS } from '@/constants/bot-contents';
 import { useStore } from '@/hooks/useStore';
-import {
-    DerivLightBotBuilderIcon,
-    DerivLightGoogleDriveIcon,
-    DerivLightLocalDeviceIcon,
-    DerivLightMyComputerIcon,
-    DerivLightQuickStrategyIcon,
-} from '@deriv/quill-icons/Illustration';
-import { Localize, localize } from '@deriv-com/translations';
+import { localize } from '@deriv-com/translations';
 import { useDevice } from '@deriv-com/ui';
-/* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
-/* [/AI] */
 import DashboardBotList from './bot-list/dashboard-bot-list';
+import './kfx-cards.scss';
 
 type TCardProps = {
     has_dashboard_strategies: boolean;
@@ -29,9 +18,22 @@ type TCardProps = {
 
 type TCardArray = {
     id: string;
+    accent: string;
     icon: React.ReactElement;
-    content: React.ReactElement;
+    title: string;
+    text: string;
     callback: () => void;
+};
+
+const icon_props = {
+    width: 24,
+    height: 24,
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.8,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
 };
 
 const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => {
@@ -47,57 +49,63 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
         setActiveTab(DBOT_TABS.BOT_BUILDER);
     };
 
-    const openGoogleDriveDialog = () => {
-        const google_drive_tab_index = isDesktop ? 2 : 1;
-        toggleLoadModal();
-        setActiveTabIndex(google_drive_tab_index); // Google Drive tab index
-        setActiveTab(DBOT_TABS.BOT_BUILDER);
-    };
-
     const actions: TCardArray[] = [
         {
             id: 'my-computer',
-            icon: is_mobile ? (
-                <DerivLightLocalDeviceIcon height='48px' width='48px' />
-            ) : (
-                <DerivLightMyComputerIcon height='48px' width='48px' />
+            accent: 'blue',
+            icon: (
+                <svg {...icon_props}>
+                    <path d='M12 16V4m0 0L8 8m4-4l4 4M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3' />
+                </svg>
             ),
-            content: is_mobile ? <Localize i18n_default_text='Local' /> : <Localize i18n_default_text='My computer' />,
-            callback: () => {
-                openFileLoader();
-                /* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
-                /* [/AI] */
-            },
+            title: 'Upload bot',
+            text: 'Load a saved bot file from your computer.',
+            callback: openFileLoader,
         },
         {
-            id: 'google-drive',
-            icon: <DerivLightGoogleDriveIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Google Drive' />,
+            id: 'free-bots',
+            accent: 'gold',
+            icon: (
+                <svg {...icon_props}>
+                    <rect x='3' y='3' width='7' height='7' rx='1' />
+                    <rect x='14' y='3' width='7' height='7' rx='1' />
+                    <rect x='3' y='14' width='7' height='7' rx='1' />
+                    <rect x='14' y='14' width='7' height='7' rx='1' />
+                </svg>
+            ),
+            title: 'Free bots',
+            text: 'Pick a ready-made bot from the KingsFX list.',
             callback: () => {
-                openGoogleDriveDialog();
-                /* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
-                /* [/AI] */
+                setActiveTab(DBOT_TABS.TUTORIAL);
             },
         },
         {
             id: 'bot-builder',
-            icon: <DerivLightBotBuilderIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Bot Builder' />,
+            accent: 'green',
+            icon: (
+                <svg {...icon_props}>
+                    <path d='M4 7l8-4 8 4-8 4-8-4zM4 12l8 4 8-4M4 17l8 4 8-4' />
+                </svg>
+            ),
+            title: 'Bot Builder',
+            text: 'Build your own bot with drag-and-drop blocks.',
             callback: () => {
                 setActiveTab(DBOT_TABS.BOT_BUILDER);
-                /* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
-                /* [/AI] */
             },
         },
         {
             id: 'quick-strategy',
-            icon: <DerivLightQuickStrategyIcon height='48px' width='48px' />,
-            content: <Localize i18n_default_text='Quick strategy' />,
+            accent: 'sky',
+            icon: (
+                <svg {...icon_props}>
+                    <path d='M13 2L4 14h7l-1 8 9-12h-7l1-8z' />
+                </svg>
+            ),
+            title: 'Quick strategy',
+            text: 'Start from a ready-made strategy template.',
             callback: () => {
                 setActiveTab(DBOT_TABS.BOT_BUILDER);
                 setFormVisibility(true);
-                /* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
-                /* [/AI] */
             },
         },
     ];
@@ -109,41 +117,24 @@ const Cards = observer(({ is_mobile, has_dashboard_strategies }: TCardProps) => 
                     'tab__dashboard__table--minimized': has_dashboard_strategies && is_mobile,
                 })}
             >
-                <div
-                    className={classNames('tab__dashboard__table__tiles', {
-                        'tab__dashboard__table__tiles--minimized': has_dashboard_strategies && is_mobile,
-                    })}
-                    id='tab__dashboard__table__tiles'
-                >
-                    {actions.map(icons => {
-                        const { icon, content, callback, id } = icons;
-                        return (
-                            <div
+                <div className='tab__dashboard__table__tiles' id='tab__dashboard__table__tiles'>
+                    <div className='kfx-actions'>
+                        <p className='kfx-actions__label'>Quick actions</p>
+                        {actions.map(({ id, accent, icon, title, text, callback }) => (
+                            <button
+                                type='button'
                                 key={id}
-                                className={classNames('tab__dashboard__table__block', {
-                                    'tab__dashboard__table__block--minimized': has_dashboard_strategies && is_mobile,
-                                })}
+                                id={id}
+                                className={`kfx-action kfx-action--${accent}`}
+                                onClick={callback}
                             >
-                                <div
-                                    className={classNames('tab__dashboard__table__images', {
-                                        'tab__dashboard__table__images--minimized': has_dashboard_strategies,
-                                    })}
-                                    width='8rem'
-                                    height='8rem'
-                                    icon={icon}
-                                    id={id}
-                                    onClick={() => {
-                                        callback();
-                                    }}
-                                >
-                                    {icon}
-                                </div>
-                                <Text color='prominent' size={is_mobile ? 'xxs' : 'xs'}>
-                                    {content}
-                                </Text>
-                            </div>
-                        );
-                    })}
+                                <span className='kfx-action__icon'>{icon}</span>
+                                <span className='kfx-action__title'>{title}</span>
+                                <span className='kfx-action__text'>{text}</span>
+                                <span className='kfx-action__open'>Open →</span>
+                            </button>
+                        ))}
+                    </div>
 
                     {!isDesktop ? (
                         <Dialog
