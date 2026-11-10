@@ -2,7 +2,7 @@
   {
     "name": "Digit Under Recovery",
     "file": "mkorean-bot.xml",
-    "description": "A digits bot on Volatility 10 (1s). It enters on a chosen last digit, then raises its stake after losses to recover them, with take-profit and stop-loss limits. High risk: stakes can roughly double with each loss. Demo account only.",
+   "description": "High risk: stakes can grow very quickly. Digits bot on Volatility 10 (1s) that raises its stake after losses to recover them. Demo account only.",
     "risk": "High"
   }
 ]

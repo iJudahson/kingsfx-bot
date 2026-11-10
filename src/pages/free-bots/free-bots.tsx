@@ -112,7 +112,7 @@ const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number)
 
             <div className='kfx-freebots__grid'>
                 {visible_bots.map(bot => (
-                    <div className='kfx-freebots__card' key={bot.file}>
+                    <div className='kfx-freebots__card' key={`${bot.file}-${bot.name}`}>
                         <div className='kfx-freebots__row'>
                             <h3 className='kfx-freebots__name'>{bot.name}</h3>
                             <span
