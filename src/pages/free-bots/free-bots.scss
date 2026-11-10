@@ -91,22 +91,71 @@
     }
 
     &__card {
+        --accent: #2563eb;
+        --accent-rgb: 37, 99, 235;
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
+        overflow: hidden;
         padding: 2rem;
-        border: 1px solid #2a3a5e;
-        border-top: 3px solid #c9a227;
-        border-radius: 1.2rem;
-        background: #16213a;
-        box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(var(--accent-rgb), 0.35);
+        border-radius: 2rem;
+        background: #0d1526;
+        box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.45);
         transition:
             transform 0.15s ease,
+            box-shadow 0.15s ease,
             border-color 0.15s ease;
 
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.4), transparent 60%);
+            pointer-events: none;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.45), rgba(var(--accent-rgb), 0.12) 90%);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
         &:hover {
-            border-color: #c9a227;
-            transform: translateY(-0.2rem);
+            border-color: rgba(var(--accent-rgb), 0.85);
+            box-shadow:
+                0 1.2rem 3rem rgba(0, 0, 0, 0.55),
+                0 0 2rem rgba(var(--accent-rgb), 0.18);
+            transform: translateY(-0.3rem);
+        }
+
+        &:hover::after {
+            opacity: 1;
+        }
+
+        &:nth-child(4n + 2) {
+            --accent: #c9a227;
+            --accent-rgb: 201, 162, 39;
+        }
+
+        &:nth-child(4n + 3) {
+            --accent: #10b981;
+            --accent-rgb: 16, 185, 129;
+        }
+
+        &:nth-child(4n + 4) {
+            --accent: #0ea5e9;
+            --accent-rgb: 14, 165, 233;
         }
     }
 
@@ -128,6 +177,7 @@
         padding: 0.4rem 1rem;
         border: 1px solid #64748b;
         border-radius: 99.9rem;
+        background: rgba(13, 21, 38, 0.6);
         color: #94a3b8;
         font-size: 1.2rem;
         font-weight: bold;
@@ -135,19 +185,16 @@
 
         &--low {
             border-color: #10b981;
-            background: rgba(16, 185, 129, 0.12);
             color: #34d399;
         }
 
         &--medium {
             border-color: #f59e0b;
-            background: rgba(245, 158, 11, 0.12);
             color: #fbbf24;
         }
 
         &--high {
             border-color: #ef4444;
-            background: rgba(239, 68, 68, 0.12);
             color: #f87171;
         }
     }
@@ -160,29 +207,38 @@
         color: #94a3b8;
         font-size: 1.4rem;
         line-height: 1.5;
+        transition: color 0.2s ease;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
     }
 
     &__button {
-        width: 100%;
-        padding: 1.1rem 2rem;
-        border: 0;
-        border-radius: 0.8rem;
-        background: #2563eb;
-        color: #fff;
-        font-size: 1.4rem;
+        align-self: flex-end;
+        padding: 0.8rem 1.8rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 99.9rem;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--accent);
+        font-size: 1.3rem;
         font-weight: bold;
         cursor: pointer;
-
-        &:hover {
-            background: #1d4ed8;
-        }
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
 
         &:disabled {
             opacity: 0.6;
             cursor: default;
         }
+    }
+
+    &__card:hover &__text {
+        color: #e2e8f0;
+    }
+
+    &__card:hover &__button {
+        background: rgba(0, 0, 0, 0.35);
+        color: #fff;
     }
 
     @media (max-width: 600px) {

@@ -130,7 +130,7 @@ const FreeBots = observer(({ handleTabChange }: { handleTabChange: (tab: number)
                             disabled={busy_file === bot.file}
                             onClick={() => handleLoad(bot)}
                         >
-                            {busy_file === bot.file ? 'Loading...' : 'Load bot'}
+                            {busy_file === bot.file ? 'Loading...' : 'Load bot →'}
                         </button>
                     </div>
                 ))}
