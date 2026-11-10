@@ -4,5 +4,11 @@
     "file": "mkorean-bot.xml",
    "description": "High risk: stakes can grow very quickly. Digits bot on Volatility 10 (1s) that raises its stake after losses to recover them. Demo account only.",
     "risk": "High"
+  },
+  {
+    "name": "Wealth Generator V2",
+    "file": "wealth-generator-v2-bot.xml",
+    "description": "Describe what your new bot strategy does here.",
+    "risk": "Medium"
   }
 ]
