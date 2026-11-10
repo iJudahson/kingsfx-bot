@@ -16,5 +16,47 @@
     "file": "dollar-way-v1.2-bot.xml",
     "description": "Bot description here.",
     "risk": "Medium"
+  },
+  {
+    "name": "Big Boyz Rise & Fall",
+    "file": "big-boyz-rise-n-fall-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "Binary Expert Pro V5",
+    "file": "binary-v5-expert-pro-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "Candle Mine V3.1",
+    "file": "candle-mine-version-3.1-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "M&M Digit Differ",
+    "file": "m&m-digit-differ-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "Over & Under Advanced",
+    "file": "over-&-under-advanced-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "Under 9 Trend",
+    "file": "under-9-trend-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
+  },
+  {
+    "name": "VH The Goat Binary",
+    "file": "vh-the-goat-binary-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
   }
 ]
