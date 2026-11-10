@@ -10,6 +10,7 @@ import Announcements from './announcements';
 import Cards from './cards';
 import InfoPanel from './info-panel';
 import WelcomeHero from './welcome-hero';
+import DashboardGreeting from './dashboard-greeting';
 
 type TMobileIconGuide = {
     handleTabChange: (active_number: number) => void;
@@ -36,6 +37,7 @@ const DashboardComponent = observer(({ handleTabChange }: TMobileIconGuide) => {
                     )}
                     <div className='quick-panel'>
                         {!client.is_logged_in && <WelcomeHero />}
+                        <DashboardGreeting />
                         <div
                             className={classNames('tab__dashboard__header', {
                                 'tab__dashboard__header--listed': isDesktop && has_dashboard_strategies,
