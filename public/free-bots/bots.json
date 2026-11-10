@@ -58,5 +58,17 @@
     "file": "vh-the-goat-binary-bot.xml",
     "description": "Bot description here.",
     "risk": "Medium"
+  },
+  {
+    "name": "Advanced Golminer 2",
+    "file": "advanced-goldminer-2-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Low"
+  },
+  {
+    "name": "Sniper Havoc V2",
+    "file": "sniper-havoc-v2-bot.xml",
+    "description": "Bot description here.",
+    "risk": "Medium"
   }
 ]
