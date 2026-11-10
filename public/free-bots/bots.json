@@ -8,13 +8,13 @@
   {
     "name": "Wealth Generator V2",
     "file": "wealth-generator-v2-bot.xml",
-    "description": "Describe what your new bot strategy does here.",
+    "description": "Bot description here..",
     "risk": "Medium"
   },
   {
     "name": "Dollar Way V1.2",
     "file": "dollar-way-v1.2-bot.xml",
-    "description": "Describe what your new bot strategy does here.",
+    "description": "Bot description here.",
     "risk": "Medium"
   }
 ]
