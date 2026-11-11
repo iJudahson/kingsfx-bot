@@ -1,0 +1,214 @@
+.kfx-landing {
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100vh - 13rem);
+    padding: 0 2.4rem 4rem;
+    overflow-y: auto;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.22), transparent 55%),
+        #070b14;
+    color: var(--text-prominent);
+
+    &__hero,
+    &__section,
+    &__risk {
+        max-width: 96rem;
+        margin: 0 auto;
+    }
+
+    &__hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+        padding: 6rem 0 4rem;
+        text-align: center;
+    }
+
+    &__tag {
+        padding: 0.6rem 1.4rem;
+        border: 1px solid rgba(201, 162, 39, 0.4);
+        border-radius: 99.9rem;
+        background: rgba(201, 162, 39, 0.1);
+        color: #c9a227;
+        font-size: 1.2rem;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    &__title {
+        max-width: 80rem;
+        margin: 0;
+        font-size: 4.8rem;
+        line-height: 1.1;
+
+        span {
+            color: #c9a227;
+        }
+    }
+
+    &__text {
+        max-width: 62rem;
+        margin: 0;
+        color: #94a3b8;
+        font-size: 1.7rem;
+        line-height: 1.6;
+    }
+
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.4rem;
+        margin-top: 0.8rem;
+    }
+
+    &__primary,
+    &__secondary {
+        padding: 1.3rem 3rem;
+        border-radius: 0.8rem;
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    &__primary {
+        border: 0;
+        background: #2563eb;
+        color: #fff;
+
+        &:hover {
+            background: #1d4ed8;
+        }
+    }
+
+    &__secondary {
+        border: 1px solid #2a3a5e;
+        background: transparent;
+        color: var(--text-prominent);
+
+        &:hover {
+            border-color: #c9a227;
+        }
+    }
+
+    &__note {
+        margin: 0;
+        color: #64748b;
+        font-size: 1.3rem;
+    }
+
+    &__section {
+        padding: 3rem 0;
+    }
+
+    &__heading {
+        margin: 0 0 2rem;
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        gap: 1.8rem;
+    }
+
+    &__card {
+        --accent: #2563eb;
+        --accent-rgb: 37, 99, 235;
+        position: relative;
+        overflow: hidden;
+        padding: 2.4rem;
+        border: 1px solid rgba(var(--accent-rgb), 0.35);
+        border-radius: 2rem;
+        background: #0d1526;
+        box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.45);
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 100% 0%, rgba(var(--accent-rgb), 0.4), transparent 60%);
+            pointer-events: none;
+        }
+
+        & > * {
+            position: relative;
+        }
+
+        &--gold {
+            --accent: #c9a227;
+            --accent-rgb: 201, 162, 39;
+        }
+
+        &--green {
+            --accent: #10b981;
+            --accent-rgb: 16, 185, 129;
+        }
+
+        &--sky {
+            --accent: #0ea5e9;
+            --accent-rgb: 14, 165, 233;
+        }
+    }
+
+    &__card-title {
+        margin: 0 0 0.8rem;
+        font-size: 1.8rem;
+    }
+
+    &__card-text {
+        margin: 0;
+        color: #94a3b8;
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+
+    &__steps {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+        gap: 1.8rem;
+    }
+
+    &__step {
+        padding: 2rem;
+        border: 1px solid #2a3a5e;
+        border-radius: 1.6rem;
+        background: #0d1526;
+    }
+
+    &__step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.6rem;
+        height: 3.6rem;
+        margin-bottom: 1.2rem;
+        border: 1px solid #c9a227;
+        border-radius: 50%;
+        color: #c9a227;
+        font-weight: bold;
+    }
+
+    &__risk {
+        padding: 2.4rem;
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        border-radius: 1.6rem;
+        background: rgba(239, 68, 68, 0.06);
+        text-align: center;
+
+        .kfx-landing__heading {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        &__title {
+            font-size: 3rem;
+        }
+    }
+}
