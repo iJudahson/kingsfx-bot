@@ -439,7 +439,7 @@ const AppWrapper = observer(() => {
                                 }
                                 id='id-tutorials'
                             >
-                                <div className='tutorials-wrapper'>
+                                <div className='kfx-freebots-wrapper'>
                                     <Suspense
                                         fallback={
                                             <ChunkLoader message={localize('Please wait, loading tutorials...')} />
