@@ -1,9 +1,9 @@
 .kfx-freebots {
     box-sizing: border-box;
     width: 100%;
-    max-width: 112rem;
+    max-width: 150rem;
     max-height: calc(100vh - 18rem);
-    margin: 0 auto;
+    margin: 0 auto !important;
     padding: 2.4rem;
     overflow-y: auto;
     color: var(--text-prominent);
