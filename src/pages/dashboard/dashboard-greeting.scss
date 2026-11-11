@@ -2,9 +2,15 @@
     display: none !important;
 }
 
-.tab__dashboard__content {
-    max-height: calc(100vh - 20rem);
-    overflow-y: auto;
+.tab__dashboard {
+    height: calc(100vh - 19rem) !important;
+    overflow-y: auto !important;
+}
+
+.tab__dashboard .tab__dashboard__content {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 .kfx-greeting {
