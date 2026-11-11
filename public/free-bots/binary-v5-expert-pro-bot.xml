@@ -678,57 +678,7 @@
                           </block>
                         </value>
                         <next>
-                          <block type="notify_telegram" id=":L;o$/S0X^2^nt%taS5}" collapsed="true">
-                            <value name="TELEGRAM_ACCESS_TOKEN">
-                              <shadow type="text" id="g2ZFbD2wcT+a0m~Pc+S_">
-                                <field name="TEXT">6274362984:AAHxEunMiwQXaohhi-5VwjAmbi-1TZLGdAw</field>
-                              </shadow>
-                            </value>
-                            <value name="TELEGRAM_CHAT_ID">
-                              <shadow type="text" id="pW*htCwp.IBKH@{W!4+0">
-                                <field name="TEXT">5622115596</field>
-                              </shadow>
-                            </value>
-                            <value name="TELEGRAM_MESSAGE">
-                              <shadow type="text" id="Blg?@.4Ebc6#:s7+f$oa">
-                                <field name="TEXT">abc</field>
-                              </shadow>
-                              <block type="text_join" id="_{Vp4jqr0Fn#ig(S7)^0">
-                                <mutation items="7"></mutation>
-                                <value name="ADD0">
-                                  <block type="text" id="%CYg{qxg-}RSTC]ZM}D;">
-                                    <field name="TEXT">[Binary v5 Expert pro]Results For: </field>
-                                  </block>
-                                </value>
-                                <value name="ADD1">
-                                  <block type="text" id="+9+$T+/[1,RTe3;ZLP[*">
-                                    <field name="TEXT"></field>
-                                  </block>
-                                </value>
-                                <value name="ADD2">
-                                  <block type="variables_get" id=")zfMbb:3x!.Sa~0RE|Dz">
-                                    <field name="VAR" id="1Gp/v]LP27,I/mi@$;US" variabletype="">NAME</field>
-                                  </block>
-                                </value>
-                                <value name="ADD3">
-                                  <block type="text" id="E!y=*Qb7gvT|{5-![0rY">
-                                    <field name="TEXT"> •Total loss-&gt; $</field>
-                                  </block>
-                                </value>
-                                <value name="ADD4">
-                                  <block type="total_profit" id="m+U6T+ai{W6L3}.IClMs"></block>
-                                </value>
-                                <value name="ADD5">
-                                  <block type="text" id="$tM3c@jEG6r-^t,Gh!c.">
-                                    <field name="TEXT"> •Number of runs-&gt; </field>
-                                  </block>
-                                </value>
-                                <value name="ADD6">
-                                  <block type="total_runs" id="d~+J4)ZQBbKbfn,9e*}`"></block>
-                                </value>
-                              </block>
-                            </value>
-                          </block>
+
                         </next>
                       </block>
                     </next>
