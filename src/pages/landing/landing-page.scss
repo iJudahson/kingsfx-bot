@@ -41,6 +41,7 @@
         max-width: 80rem;
         margin: 0;
         font-size: 4.8rem;
+        font-weight: bold;
         line-height: 1.1;
 
         span {
@@ -107,6 +108,7 @@
     &__heading {
         margin: 0 0 2rem;
         font-size: 2.4rem;
+        font-weight: bold;
         text-align: center;
     }
 
@@ -158,6 +160,7 @@
     &__card-title {
         margin: 0 0 0.8rem;
         font-size: 1.8rem;
+        font-weight: bold;
     }
 
     &__card-text {
