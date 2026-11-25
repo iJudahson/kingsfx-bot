@@ -5,6 +5,7 @@ import AuthLoadingWrapper from '@/components/auth-loading-wrapper';
 import useLiveChat from '@/components/chat/useLiveChat';
 import KfxSplash from '@/components/loader/kfx-splash';
 import LandingPage from '../pages/landing/landing-page';
+import RiskBadge from '@/components/risk-badge/risk-badge';
 import { getUrlBase } from '@/components/shared';
 import TransactionDetailsModal from '@/components/transaction-details';
 import { api_base, ApiHelpers, ServerTime } from '@/external/bot-skeleton';
@@ -182,6 +183,7 @@ const AppContent = observer(() => {
                         <LandingPage />
                     )}
                     <ToastContainer limit={3} draggable={false} />
+                    <RiskBadge />
                 </div>
             </ThemeProvider>
         </AuthLoadingWrapper>
